@@ -4,23 +4,41 @@ function countdown() {
     var timeLeft = 60;
 
     var timeInterval = setInterval(function () {
-        // As long as the `timeLeft` is greater than 1
         if (timeLeft > 1) {
-          // Set the `textContent` of `timerEl` to show the remaining seconds
-          timerEl.textContent = timeLeft + ' seconds remaining';
-          // Decrement `timeLeft` by 1
+          timerEl.textContent = 'Time: ' + timeLeft;
           timeLeft--;
         } else if (timeLeft === 1) {
-          // When `timeLeft` is equal to 1, rename to 'second' instead of 'seconds'
-          timerEl.textContent = timeLeft + ' second remaining';
+          timerEl.textContent = 'Time: ' + timeLeft;
           timeLeft--;
         } else {
-          // Once `timeLeft` gets to 0, set `timerEl` to an empty string
-          timerEl.textContent = '';
-          // Use `clearInterval()` to stop the timer
+          timerEl.textContent = 'Game Over';
           clearInterval(timeInterval);
-          // Call the `displayMessage()` function
           displayMessage();
         }
       }, 1000);
     }
+
+countdown();
+
+
+
+(function() {
+    var sec = 60;
+    function startTimer(){
+        console.log('timer suppose to go')
+        var timer = setInterval(function(){
+            sec--;
+            document.getElementById('timerDisplay').innerHTML='00:'+sec;
+            if (sec < 0) {
+                clearInterval(timer);
+                alert("Time is up!")
+            }
+        }, 1000);
+    }
+    document.getElementById('incorrect').addEventListener('click', function() {
+        sec -= 5;
+        document.getElementById('timerDisplay').innerHTML='00:'+sec;
+    });
+    startTimer();
+})();
+
