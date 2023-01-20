@@ -31,7 +31,7 @@ countdown();
             document.getElementById('timerDisplay').innerHTML='00:'+sec;
             if (sec < 0) {
                 clearInterval(timer);
-                alert("Time is up!")
+                alert("Game Over!")
             }
         }, 1000);
     }
