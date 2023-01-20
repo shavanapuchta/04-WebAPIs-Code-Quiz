@@ -1,7 +1,7 @@
 var timerEl = document.getElementById('countdown');
 
 function countdown() {
-    var timeLeft = 60;
+    var timeLeft = 75;
 
     var timeInterval = setInterval(function () {
         if (timeLeft > 1) {
@@ -23,7 +23,7 @@ countdown();
 
 
 (function() {
-    var sec = 60;
+    var sec = 75;
     function startTimer(){
         console.log('timer suppose to go')
         var timer = setInterval(function(){
@@ -36,7 +36,7 @@ countdown();
         }, 1000);
     }
     document.getElementById('incorrect').addEventListener('click', function() {
-        sec -= 5;
+        sec -= 10;
         document.getElementById('timerDisplay').innerHTML='00:'+sec;
     });
     startTimer();
